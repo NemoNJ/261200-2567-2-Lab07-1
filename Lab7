@@ -1,0 +1,116 @@
+import java.awt.*;
+import java.sql.SQLOutput;
+import java.util.*;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) { //String[] args (argument) มันคือสื่งที่ใช้ตอน run
+        System.out.println("Hello, World!"+args[0]);//ใส่แล้วรันไม่ผ่าน args[0] สังเกต มี exit code 1 แสดงว่ามันไม่ได้
+        //ที่ใช้ไม่ได้เพราะไม่มี argument แก้ปัญหาด้วย run with parameter ได้
+        System.out.println("Hello, World!"+" "+args[0]+" "+args[1]+" "+args[2]);
+        //c++ version
+//        String[] c;
+//        for(int i = 0; i < args.length; i++){
+//            c[i] = args[i];
+//        }
+        //java version
+        List<String> aList = new ArrayList<>();//กล่องเก็บของและสิ่งที่เก็บ เก็บเป้น linklist
+        for(int i = 0; i < args.length; i++)//linklist
+            aList.add(args[i]);
+        System.out.println(aList);//ก่อนสับ shuffle
+        //class method Collections
+        Collections.shuffle(aList, new Random());//class method เราเรียกผ่านชื่อ class
+        System.out.println(aList);//หลังสับ shuffle
+        System.out.println( "   " );
+        System.out.println( "SET" );
+        Set<String> hSet = new HashSet<>();
+        hSet.add("OOP");
+        hSet.add("GG");
+        hSet.add("EZ");
+        hSet.add("F");
+        hSet.add("not");
+        hSet.add("drop");
+        hSet.add("GG");//ซ้ำแล้วไม่เก็บ แต่มันยังคน run ต่อไปด้านล่าง
+        hSet.add("GG");
+        hSet.add("GG");
+        hSet.add("GG");
+        hSet.add("GG");
+        hSet.add("GG");
+        hSet.add("GG");
+        System.out.println(hSet);//ไม่มีการเรียงลำดับ
+        hSet.remove("GG");//GG จะหายไปเลย
+        System.out.println(hSet);//ไม่มีการเรียงลำดับ
+        //hSet.removeAll();ต้องระบุสับเซต เป็นการลบหลายสมาชิกพร้อมกัน
+        System.out.println(hSet);//ไม่มีการเรียงลำดับ
+        hSet.clear();//ล้างหมด
+        System.out.println(hSet);//ไม่มีการเรียงลำดับ
+        System.out.println(" ");
+
+        System.out.println( "TREESET" );
+        //Tree setมันจะเริ่มเรียงที่พิมม์ใหญ่
+        SortedSet<String> sSet = new TreeSet<>();
+        sSet.add("OOP");
+        sSet.add("GG");
+        sSet.add("EZ");
+        sSet.add("F");
+        sSet.add("not");
+        sSet.add("drop");
+        sSet.add("GG");
+        sSet.add("ZZZ");
+        sSet.add("123");//อยู่หน้าสุด
+        sSet.add("อาจารย์");//อยู่หลังสุด
+        System.out.println(sSet);
+        System.out.println(" ");
+
+        System.out.println( "STACK" );
+        //stack ตัวซ้ำได้
+        Stack<String> stacko = new Stack<>();
+        stacko.add("a");//add เหมือน push ใน stack
+        stacko.push("a");//วางทับอันล่างเรื่อยๆ
+        stacko.push("b");//วางทับอันล่างเรื่อยๆ
+        stacko.push("c");//วางทับอันล่างเรื่อยๆ
+        stacko.push("d");//วางทับอันล่างเรื่อยๆ
+        System.out.println(stacko);
+        //stacko.pop();//ลบตัวล่าสุดหรือสุดท้าย และ มัน return ของได้ด้วย
+        System.out.println(stacko.pop());//มี return  print ได้
+        System.out.println(stacko);
+        System.out.println(" ");
+        System.out.println( "HASHMAP" );
+        //HASH map
+        Map<String, Color> favoriteColors = new HashMap<String, Color>();
+        favoriteColors.put("Juliet", Color.BLUE);
+        favoriteColors.put("Romeo", Color.GREEN);
+        favoriteColors.put("Adam", Color.RED);
+        favoriteColors.put("Eve", Color.BLUE);
+        favoriteColors.put("Robert", Color.BLACK);
+        favoriteColors.put("Mark", Color.WHITE);
+        favoriteColors.put("Pedro", Color.YELLOW);
+        favoriteColors.put("Cole", Color.BLUE);
+
+        Set<String> keySet = favoriteColors.keySet();//keySet() method ของ map
+        for (String key: keySet) {
+            Color value = favoriteColors.get(key);
+            System.out.println(key + ":" + value);
+        }
+        System.out.println( "   " );
+        System.out.println( "TREEMAP" );
+        //Tree map
+        Map<String, Color> myfavoriteColors = new TreeMap<String, Color>();
+        myfavoriteColors.put("Juliet", Color.BLUE);
+        myfavoriteColors.put("Romeo", Color.GREEN);
+        myfavoriteColors.put("Adam", Color.RED);
+        myfavoriteColors.put("Eve", Color.BLUE);
+        myfavoriteColors.put("Robert", Color.BLACK);
+        myfavoriteColors.put("Mark", Color.WHITE);
+        myfavoriteColors.put("Pedro", Color.YELLOW);
+        myfavoriteColors.put("Cole", Color.BLUE);
+
+        Set<String> keySet_1 = myfavoriteColors.keySet();//keySet() method ของ map
+        for (String key: keySet_1) {
+            Color value = myfavoriteColors.get(key);
+            System.out.println(key + ":" + value);
+        }
+        System.out.println( "   " );
+
+    }
+}
